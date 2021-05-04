@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Hero
 
 
 def index(request):
-    return HttpResponse("Because I am Batman")
+    all_heroes = Hero.objects.all()
+    context = {
+        'all_heroes': all_heroes
+    }
+    return render(request, 'heroes/index.html', context)
