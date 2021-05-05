@@ -58,3 +58,8 @@ def delete_hero(request, hero_id):
     Hero.objects.get(pk=hero_id).delete()
 
     return HttpResponseRedirect(reverse('heroes:index'))
+
+
+def home(request):
+
+    return render(request, 'heroes/home.html')
