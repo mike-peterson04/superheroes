@@ -5,5 +5,6 @@ app_name = 'heroes'
 urlpatterns = [
     path('index', views.index, name='index'),
     path('', views.index, name='index'),
-    path('<int:hero_id>/', views.detail, name='detail')
+    path('<int:hero_id>/', views.detail, name='detail'),
+    path('new/', views.create_hero, name='create_hero')
 ]

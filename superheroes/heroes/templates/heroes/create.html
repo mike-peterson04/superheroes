@@ -6,16 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Heroes</title>
+    <title>Create a Hero</title>
 </head>
 <body>
-<h1>Registered Heroes:</h1>
-<ul>
-    {% for hero in all_heroes %}
-    <li><h2><a href="{% url 'heroes:detail' hero.id %}">{{hero.hero_name}}</a></h2></li>
-    {% endfor %}
-</ul>
-<a href="{% url 'heroes:create_hero' %}">Register Superhero</a>
+<form action="{% url 'heroes:create_hero' %}" method="post">
+    {% csrf_token %}
+Hero Name:<input type="text" name="hero_name" id="hero_name"><br>
+Secret Identity:<input type="text" name="secret" id="secret"><br>
+Primary Ability:<input type="text" name="primary" id="primary"><br>
+Secondary Ability:<input type="text" name="second" id="second"><br>
+Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
+<input type="submit" value="Register Hero!">
+</form>
+
+
+
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
