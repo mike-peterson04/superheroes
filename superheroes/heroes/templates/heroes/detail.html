@@ -22,7 +22,7 @@
 <br><br>
 <ul>
 <li><a href="{% url 'heroes:edit_hero' hero.id %}">Edit</a></li>
-<li><a href="">Delete</a></li>
+<li><a href="{% url 'heroes:delete' hero.id %}">Delete</a></li>
 <li><a href="{% url 'heroes:index' %}">Return to All Heroes</a></li>
 
 </ul>

@@ -54,4 +54,7 @@ def edit_hero(request, hero_id ):
         return render(request, 'heroes/edit.html', context)
 
 
+def delete_hero(request, hero_id):
+    Hero.objects.get(pk=hero_id).delete()
 
+    return HttpResponseRedirect(reverse('heroes:index'))
